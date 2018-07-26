@@ -68,8 +68,8 @@ public class GroceryList {
 				//This else if statement sets up a list option to show what you have input.	
 				} else if (userInput.equals("list")) {
 					System.out.println("Here's what you got:");
-					System.out.println("Item\t\t\tPrice");
-					System.out.println("===============================");
+					System.out.println("Item\t\t\t\tPrice");
+					System.out.println("=======================================");
 					for(int i = 0 ; i < itemOrdered.size(); i++) {
 						System.out.println((i+1) + ". " + itemOrdered.get(i) + "\t\t\t$" + String.format( "%.2f" , priceOfItem.get(i)));
 					}
@@ -97,8 +97,8 @@ public class GroceryList {
 			
 			//This statement prints the final list
 			System.out.println("Here's what you got:");
-			System.out.println("Item\t\t\tPrice");
-			System.out.println("===============================");
+			System.out.println("Item\t\t\t\tPrice");
+			System.out.println("=======================================");
 			for(int i = 0 ; i < itemOrdered.size(); i++) {
 			System.out.println((i+1) + ". " + itemOrdered.get(i) + "\t\t\t$" + String.format( "%.2f" , priceOfItem.get(i)));
 			}
