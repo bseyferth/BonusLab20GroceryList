@@ -75,12 +75,12 @@ public class GroceryList {
 					}
 						//Methods to get avg, min, and max. Then they print the results.
 						avg = getAverage(priceOfItem);
-						min = getMin(priceOfItem);
-						max = getMax(priceOfItem);
+						min = getMin(priceOfItem, itemOrdered);
+						max = getMax(priceOfItem, itemOrdered);
 						System.out.println("You have " + priceOfItem.size() + " items on your list.");
 						System.out.println("Average price per item is: $" + avg);
-						System.out.println("The lowest cost item costs: $" + min);
-						System.out.println("The highest cost item costs: $" + max);
+						System.out.println(min);
+						System.out.println(max);
 						
 				} else if (!userInput.isEmpty() && menu.containsKey(userInput)) {
 					System.out.println("Adding " + userInput + " to cart at $" + String.format( "%.2f", menu.get(userInput)));
@@ -104,12 +104,12 @@ public class GroceryList {
 			}
 			//Methods to get avg, min, and max. Then they print the results.
 			avg = getAverage(priceOfItem);
-			min = getMin(priceOfItem);
-			max = getMax(priceOfItem);
+			min = getMin(priceOfItem, itemOrdered);
+			max = getMax(priceOfItem, itemOrdered);
 			System.out.println("You have " + priceOfItem.size() + " items on your list.");
 			System.out.println("Average price per item is: $" + avg);
-			System.out.println("The lowest cost item costs: $" + min);
-			System.out.println("The highest cost item costs: $" + max);
+			System.out.println(min);
+			System.out.println(max);
 			
 			//Option to run the question again.
 			System.out.println("Would you like to run the program again? \"y\" to continue");
@@ -134,37 +134,45 @@ public class GroceryList {
 	
 	//Max method calculates max, and addresses issue if you print list 
 	//or leave program with no items.
-	public static String getMax(ArrayList <Double> list) {
+	public static String getMax(ArrayList <Double> list, ArrayList <String> label) {
 		String max = "0";
+		String maxSen = "";
+		String y = "0";
 		try {
 			double x = list.get(0);
 			for (int i = 0; i < list.size(); i++) {
 				if (list.get(i) > x) {
 					x = list.get(i);
+					y = label.get(i);
 				}
 			}	
 			max =String.format( "%.2f" , x);
+			maxSen = "The highest price item is " + y + "and the price is: $" + max;
 		} catch (IndexOutOfBoundsException ex) {
-			max = "0";
+		maxSen = "You have no items so there is no maximum.";	
 		}
-			return max;
+			return maxSen;
 		}
 		
 	//Min method calculates min, and addresses issue if you print list 
 	//or leave program with no items.
-	public static String getMin(ArrayList <Double> list) {
+	public static String getMin(ArrayList <Double> list, ArrayList <String> label) {
 		String min = "0";
+		String minSen = "";
+		String y = "0";
 		try {
 			double x = list.get(0);
 			for (int i = 0; i < list.size(); i++) {
 				if (list.get(i) < x) {
 					x = list.get(i);
+					y = label.get(i);
 				}
 			}	
 			min =String.format( "%.2f" , x);
+			minSen = "The lowest price item is " + y + "and the price is: $" + min;
 		} catch (IndexOutOfBoundsException ex) {
-		min = "0";	
+		minSen = "You have no items so there is no minimum.";	
 		}
-			return min;
+			return minSen;
 		}
 }
