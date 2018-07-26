@@ -139,7 +139,7 @@ public class GroceryList {
 		String maxSen = "";
 		String y = "0";
 		try {
-			double x = list.get(0);
+			double x = Double.MIN_VALUE;
 			for (int i = 0; i < list.size(); i++) {
 				if (list.get(i) > x) {
 					x = list.get(i);
@@ -147,7 +147,7 @@ public class GroceryList {
 				}
 			}	
 			max =String.format( "%.2f" , x);
-			maxSen = "The highest price item is " + y + "and the price is: $" + max;
+			maxSen = "The highest price item is " + y + " and the price is: $" + max;
 		} catch (IndexOutOfBoundsException ex) {
 		maxSen = "You have no items so there is no maximum.";	
 		}
@@ -161,7 +161,7 @@ public class GroceryList {
 		String minSen = "";
 		String y = "0";
 		try {
-			double x = list.get(0);
+			double x = Double.MAX_VALUE;
 			for (int i = 0; i < list.size(); i++) {
 				if (list.get(i) < x) {
 					x = list.get(i);
@@ -169,7 +169,7 @@ public class GroceryList {
 				}
 			}	
 			min =String.format( "%.2f" , x);
-			minSen = "The lowest price item is " + y + "and the price is: $" + min;
+			minSen = "The lowest price item is " + y + " and the price is: $" + min;
 		} catch (IndexOutOfBoundsException ex) {
 		minSen = "You have no items so there is no minimum.";	
 		}
